@@ -41,7 +41,9 @@ TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a55
 # Display
 TARGET_SCREEN_DENSITY := 450
 
-
+#Things that Orangefox developer told me to add🙌
+BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
+BOARD_INCLUDE_RECOVERY_RAMDISK_IN_VENDOR_BOOT := true
 
 # Allow for building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
