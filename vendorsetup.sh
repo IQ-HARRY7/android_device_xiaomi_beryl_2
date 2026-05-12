@@ -35,7 +35,7 @@ fi
 
 if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ];
   then
-    export TARGET_DEVICE_ALT="beryl"
+    export TARGET_DEVICE_ALT="beryl" #fixed as you said :)
 
     # Binaries & Tools
     export FOX_USE_BUSYBOX_BINARY=1
@@ -46,8 +46,12 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ];
     export FOX_USE_ZSTD_BINARY=1
     export FOX_USE_DATE_BINARY=1
     export FOX_REPLACE_TOOLBOX_GETPROP=1
-    #Things that Orangefox developer told to add 🙌
+    
+    #Things that Orangefox developer told me to add🙌
     export FOX_VENDOR_BOOT_RECOVERY=1
+    export FOX_VANILLA_BUILD=1
+    export TARGET_DEVICE_ALT="citrine"
+    export FOX_TARGET_DEVICES="beryl,citrine"
     
 
     # OrangeFox Addons
