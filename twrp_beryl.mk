@@ -7,13 +7,13 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
 
 # Inherit from device configuration
-$(call inherit-product, device/xiaomi/amethyst/device.mk)
+$(call inherit-product, device/xiaomi/beryl/device.mk)
 
 # Inherit from TWRP common configuration
 $(call inherit-product, vendor/twrp/config/common.mk)
 
 # Import OrangeFox specifics
-$(call inherit-product, device/xiaomi/amethyst/fox_beryl.mk)
+$(call inherit-product, device/xiaomi/beryl/fox_beryl.mk)
 
 ## Device identifier
 PRODUCT_DEVICE := beryl
