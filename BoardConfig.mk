@@ -20,7 +20,7 @@ AB_OTA_PARTITIONS += \
     vbmeta_system \
     product
       
-BOARD_RAMDISK_USE_LZ4 := true              
+BOARD_RAMDISK_USE_LZ4 :=true     #right?         
 
 
 # Architecture
