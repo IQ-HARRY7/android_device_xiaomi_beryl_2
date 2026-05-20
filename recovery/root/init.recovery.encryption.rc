@@ -1,0 +1,9 @@
+on init
+    start vendor.keymint-mitee
+
+on property:ro.crypto.state=encrypted && property:twrp.firmware.mounted=true
+    start keystore2
+
+on property:twrp.all.users.decrypted=true
+    stop keystore2
+    stop vendor.keymint-mitee

@@ -1,0 +1,32 @@
+#BSP.Touch edit for panelcolor start
+service panel_color /vendor/bin/panelcolor_bin
+    class main
+    user root
+    group root
+    oneshot
+    disabled
+
+on post-fs-data
+    start panel_color
+#BSP.Touch edit for panelcolor end
+
+# touch funtions permissions setting
+    chown system system /sys/class/touch/touch_dev/palm_sensor
+    chmod 0664 /sys/class/touch/touch_dev/palm_sensor
+
+# Creat directory used for touchpanel_selftest
+    mkdir /data/vendor/touchpad
+    chown system system /data/vendor/touchpad
+    chmod 0775 /data/vendor/touchpad
+
+# TouchPad settings for tp_grip_area
+    on property:sys.tp.grip_enable=0
+    write /proc/tp_grip_area 0
+    on property:sys.tp.grip_enable=1
+    write /proc/tp_grip_area 1
+    on property:sys.tp.grip_enable=90
+    write /proc/tp_grip_area 90
+    on property:sys.tp.grip_enable=180
+    write /proc/tp_grip_area 180
+    on property:sys.tp.grip_enable=270
+    write /proc/tp_grip_area 270
