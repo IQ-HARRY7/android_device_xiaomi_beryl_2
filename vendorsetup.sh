@@ -82,8 +82,8 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ];
     export FOX_BUILD_DEVICE=beryl
     export FOX_VIRTUAL_AB_DEVICE=1
     export FOX_AB_DEVICE=1
-   export ALLOW_MISSING_DEPENDENCIES=true 
-   add_lunch_combo omni_beryl-ap2a-eng
+    export ALLOW_MISSING_DEPENDENCIES=true 
+    add_lunch_combo twrp_beryl-ap2a-eng 
   
     # CCACHE
     export USE_CCACHE=1
