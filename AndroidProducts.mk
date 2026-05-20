@@ -5,8 +5,8 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/fox_beryl.mk
+    $(LOCAL_DIR)/twrp_beryl.mk
 
 COMMON_LUNCH_CHOICES := \
-    fox_beryl-ap2a-eng \
-    fox_beryl-ap2a-userdebug
+    twrp_beryl-eng \
+    twrp_beryl-userdebug
