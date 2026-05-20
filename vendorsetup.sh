@@ -8,7 +8,7 @@
 FDEVICE="beryl"
 
 # Register lunch combo UNCONDITIONALLY — must be outside if block
-add_lunch_combo fox_beryl-ap2a-eng
+# add_lunch_combo fox_beryl-ap2a-eng#
 
 fox_get_target_device() {
     local chkdev=""
