@@ -83,8 +83,9 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ];
     export FOX_VIRTUAL_AB_DEVICE=1
     export FOX_AB_DEVICE=1
     export ALLOW_MISSING_DEPENDENCIES=true 
-    add_lunch_combo twrp_beryl-ap2a-eng 
-  
+    add_lunch_combo fox_beryl-ap2a-eng 
+     #using fox_beryl.mk ☝️
+     
     # CCACHE
     export USE_CCACHE=1
     export CCACHE_EXEC="/usr/bin/ccache"
