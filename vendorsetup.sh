@@ -63,8 +63,7 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ];
     export FOX_ENABLE_KERNELSU_NEXT_SUPPORT=1
     export FOX_ENABLE_SUKISU_SUPPORT=1
 
-    # A/B partitioning
-    export FOX_VIRTUAL_AB_DEVICE=1
+    # A/B partitioninon   
     export FOX_RECOVERY_SYSTEM_PARTITION="/dev/block/mapper/system"
     export FOX_RECOVERY_VENDOR_PARTITION="/dev/block/mapper/vendor"
 
@@ -81,7 +80,6 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ];
     # CLAUDE
     export FOX_BUILD_DEVICE=beryl
     export FOX_VIRTUAL_AB_DEVICE=1
-    export FOX_AB_DEVICE=1
     export ALLOW_MISSING_DEPENDENCIES=true 
     add_lunch_combo fox_beryl-ap2a-eng 
      #using fox_beryl.mk ☝️
