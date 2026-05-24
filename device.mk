@@ -127,8 +127,10 @@ TW_BRIGHTNESS_PATH      := "/sys/class/backlight/panel0-backlight/brightness"
 # Vendor modules required for the recovery to function properly
 TW_LOAD_VENDOR_MODULES  += "fts_touch_i2c.ko xiaomi_tp.ko
 TW_LOAD_VENDOR_MODULES  += panel_event_notifier.ko xiaomi_touch.ko goodix_core.ko
-TW_LOAD_VENDOR_MODULES  += focaltech_touch.ko adsp_loader_dlkm.ko
-TW_LOAD_VENDOR_MODULES  += qti_battery_charger.ko camera.ko stm_st54se_gpio.ko"
+TW_LOAD_VENDOR_MODULES  += focaltech_touch.ko
+TW_LOAD_VENDOR_MODULES  += camera.ko stm_st54se_gpio.ko"
+
+# removed some Qualcomm specific .ko files☝️
 
 TW_EXCLUDE_DEFAULT_USB_INIT   := true
 TW_USE_SERIALNO_PROPERTY_FOR_DEVICE_ID := true
