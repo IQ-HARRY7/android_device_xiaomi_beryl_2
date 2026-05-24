@@ -135,7 +135,7 @@ TARGET_USES_MKE2FS            := true
 #Gemini
 BOARD_PREBUILT_DTBIMAGE := device/xiaomi/beryl/prebuilt/dtb
 
-BOARD_RECOVERY_RAMDISK_KERNEL_MODULES := $(wildcard device/xiaomi/beryl/prebuilt/modules/*.ko)
+BOARD_RECOVERY_RAMDISK_KERNEL_MODULES := $(wildcard device/xiaomi/beryl/prebuilt/vendor/lib/modules/1.1/)
 
 TARGET_RECOVERY_FSTAB := device/xiaomi/beryl/recovery.fstab
 
