@@ -126,6 +126,9 @@ BOARD_AVB_ENABLE := true
 
 #i dont know what is this
 BOARD_USES_METADATA_PARTITION := true
+# add dtb into Device tree
+BOARD_MKBOOTIMG_ARGS += --dtb $(BOARD_PREBUILT_DTBIMAGE)
+BOARD_MKBOOTIMG_ARGS += --dtb_offset $(BOARD_DTB_OFFSET)
 
 # Filesystems
 TARGET_USERIMAGES_USE_EXT4    := true
