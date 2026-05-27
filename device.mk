@@ -169,7 +169,7 @@ PRODUCT_PACKAGES += \
 
 # fstab files needed in first_stage_ramdisk
 PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,device/xiaomi/beryl/prebuilt/vendor/lib/modules/1.1,$(TARGET_COPY_OUT_VENDOR_RAMDISK)/lib/modules) \
     $(DEVICE_PATH)/recovery/root/first_stage_ramdisk/fstab.mt6855:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.mt6855 \
     $(DEVICE_PATH)/recovery/root/first_stage_ramdisk/fstab.emmc:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.emmc
-#    $(call find-copy-subdir-files,*,$(DEVICE_PATH)/prebuilt/vendor/lib/modules/,$(TARGET_COPY_OUT_VENDOR_RAMDISK)/lib/modules/)
 #
