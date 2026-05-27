@@ -69,30 +69,35 @@ BOARD_MOVE_GSI_AVB_KEYS_TO_VENDOR_BOOT := true
 BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE := true
 
 # Kernel / Recovery image
-TARGET_PREBUILT_KERNEL        := $(DEVICE_PATH)/prebuilt/kernel
 TARGET_KERNEL_ARCH            := $(TARGET_ARCH)
 TARGET_KERNEL_HEADER_ARCH     := $(TARGET_ARCH)
 
 # offsets, et al
+BOARD_KERNEL_BASE := 
 BOARD_KERNEL_OFFSET := 0x00008000
 BOARD_RAMDISK_OFFSET := 0x26f08000
 BOARD_TAGS_OFFSET := 0x07c88000
 BOARD_DTB_OFFSET := 0x01f00000
+BOARD_BOOT_HEADER_VERSION := 4
 BOARD_HEADER_SIZE := 2128
+BOARD_PAGE_SIZE := 4096
 BOARD_DTB_SIZE := 266395
+BOARD_VENDOR_CMDLINE := bootopt=64S3,32N2,64N2 bootconfig loop.max_part=7
+TARGET_PREBUILT_DTB := device/xiaomi/beryl/prebuilt/dtb
 
-BOARD_KERNEL_PAGESIZE         := 4096
-BOARD_KERNEL_IMAGE_NAME       := kernel
-BOARD_BOOT_HEADER_VERSION     := 4
-BOARD_MKBOOTIMG_ARGS          += --header_version $(BOARD_BOOT_HEADER_VERSION)
-BOARD_MKBOOTIMG_ARGS          += --pagesize $(BOARD_KERNEL_PAGESIZE)
+BOARD_MKBOOTIMG_ARGS += \
+    --dtb $(TARGET_PREBUILT_DTB) \
+    --dtb_offset $(BOARD_DTB_OFFSET) \
+    --vendor_cmdline $(BOARD_VENDOR_CMDLINE) \
+    --pagesize $(BOARD_PAGE_SIZE) --board "" \
+    --kernel_offset $(BOARD_KERNEL_OFFSET) \
+    --ramdisk_offset $(BOARD_RAMDISK_OFFSET) \
+    --tags_offset $(BOARD_TAGS_OFFSET) \
+    --base $(BOARD_KERNEL_BASE) \
+    --header_version $(BOARD_BOOT_HEADER_VERSION)
 
 # bootconfig
 BOARD_BOOTCONFIG += kernel.rcu_nocbs=all kernel.rcutree.enable_rcu_lazy=1 kernel.rcupdate.rcu_cpu_stall_cputime=1
-
-# cmdline
-VENDOR_CMDLINE := bootopt=64S3,32N2,64N2 bootconfig loop.max_part=7
-BOARD_MKBOOTIMG_ARGS += --vendor_cmdline "$(VENDOR_CMDLINE)"
 
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 262144
@@ -126,17 +131,12 @@ BOARD_AVB_ENABLE := true
 
 #i dont know what is this
 BOARD_USES_METADATA_PARTITION := true
-# add dtb into Device tree
-BOARD_MKBOOTIMG_ARGS += --dtb $(BOARD_PREBUILT_DTBIMAGE)
-BOARD_MKBOOTIMG_ARGS += --dtb_offset $(BOARD_DTB_OFFSET)
 
 # Filesystems
 TARGET_USERIMAGES_USE_EXT4    := true
 TARGET_USERIMAGES_USE_F2FS    := true
 TARGET_USES_MKE2FS            := true
 
-#Gemini
-BOARD_PREBUILT_DTBIMAGE := device/xiaomi/beryl/prebuilt/dtb
 
 BOARD_RECOVERY_RAMDISK_KERNEL_MODULES := $(wildcard device/xiaomi/beryl/prebuilt/vendor/lib/modules/1.1/)
 
