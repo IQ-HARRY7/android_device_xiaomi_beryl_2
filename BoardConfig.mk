@@ -68,6 +68,9 @@ BOARD_USES_GENERIC_KERNEL_IMAGE := true
 BOARD_MOVE_GSI_AVB_KEYS_TO_VENDOR_BOOT := true
 BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE := true
 
+# Not required for recovery as vendor_boot
+TARGET_NO_KERNEL := true
+
 # Kernel / Recovery image
 TARGET_KERNEL_ARCH            := $(TARGET_ARCH)
 TARGET_KERNEL_HEADER_ARCH     := $(TARGET_ARCH)
