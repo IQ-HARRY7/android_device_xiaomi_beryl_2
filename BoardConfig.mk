@@ -121,8 +121,9 @@ TARGET_USERIMAGES_USE_F2FS := true
 # Verified Boot
 BOARD_AVB_ENABLE := true
 
-#Claude - claude is hallucinating: the flag doesn't exist
-# TW_TOUCHPANEL_DEVICE := fts_ts
+# add dtb to vendor_boot.img
+BOARD_MKBOOTIMG_ARGS += --dtb $(BOARD_PREBUILT_DTBIMAGE)
+BOARD_MKBOOTIMG_ARGS += --dtb_offset $(BOARD_DTB_OFFSET)
 
 #i dont know what is this
 BOARD_USES_METADATA_PARTITION := true
@@ -136,8 +137,6 @@ TARGET_USES_MKE2FS            := true
 BOARD_PREBUILT_DTBIMAGE := device/xiaomi/beryl/prebuilt/dtb
 
 BOARD_RECOVERY_RAMDISK_KERNEL_MODULES := $(wildcard device/xiaomi/beryl/prebuilt/modules/*.ko)
-
-TARGET_RECOVERY_FSTAB := device/xiaomi/beryl/recovery.fstab
 
 # Recovery
 TARGET_SYSTEM_PROP := \
