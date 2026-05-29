@@ -60,8 +60,10 @@ BOARD_AVB_VBMETA_SYSTEM_ALGORITHM := SHA256_RSA2048
 BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX_LOCATION := 1
 
-# VA/B with recovery partition. Leave this blank as Google recommends
-BOARD_USES_RECOVERY_AS_BOOT :=
+# my device has Recovery in vendor_boot not in boot, so false
+BOARD_USES_RECOVERY_AS_BOOT := false 
+# no recovery partion exists.
+TARGET_NO_RECOVERY := true
 
 # Generic system/kernel image
 BOARD_USES_GENERIC_KERNEL_IMAGE := true
