@@ -22,13 +22,14 @@ OF_FL_PATH1	:= /tmp/of_torch
 OF_USE_GREEN_LED := 0
 
 # Security (Disables MTP & ADB during password prompt)
-OF_ADVANCED_SECURITY := 1
+OF_ADVANCED_SECURITY := 0
+# debug build so let lt zero, we will change it 1 at release.
 
 # HOS & Custom ROMs
 OF_NO_TREBLE_COMPATIBILITY_CHECK := 1
 
-# A/B partitioning
-OF_AB_DEVICE_WITH_RECOVERY_PARTITION := 1
+# A/B partitioning! - my device doesn't have a separate recovery.img so off.
+# OF_AB_DEVICE_WITH_RECOVERY_PARTITION := 1
 OF_ENABLE_ALL_PARTITION_TOOLS := 1
 
 # Fix recovery issues caused by large splash images
