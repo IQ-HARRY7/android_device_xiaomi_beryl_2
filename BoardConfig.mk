@@ -143,8 +143,6 @@ TARGET_USES_MKE2FS            := true
 
 BOARD_RECOVERY_RAMDISK_KERNEL_MODULES := $(wildcard device/xiaomi/beryl/prebuilt/vendor/lib/modules/1.1/)
 
-TARGET_RECOVERY_FSTAB := device/xiaomi/beryl/recovery.fstab
-
 # Recovery
 TARGET_SYSTEM_PROP := \
     $(DEVICE_PATH)/system.prop
