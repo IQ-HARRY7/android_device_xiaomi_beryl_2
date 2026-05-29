@@ -142,8 +142,13 @@ BOARD_USES_METADATA_PARTITION := true
 TARGET_USERIMAGES_USE_F2FS    := true
 TARGET_USES_MKE2FS            := true
 
+#i dont know if these will work or not, give a try
+MODULES_DIR := device/xiaomi/beryl/prebuilt/vendor/lib/modules/1.1
+BOARD_RECOVERY_RAMDISK_KERNEL_MODULES := $(wildcard $(MODULES_DIR)/*.ko)
+# Load other files(not just .ko)
+# too because when only run *.ko, some .dep & .load, .fstab files missed to load
+BOARD_RECOVERY_RAMDISK_KERNEL_MODULES_LOAD := $(notdir $(BOARD_RECOVERY_RAMDISK_KERNEL_MODULES))
 
-BOARD_RECOVERY_RAMDISK_KERNEL_MODULES := $(wildcard device/xiaomi/beryl/prebuilt/vendor/lib/modules/1.1/)
 
 # Recovery
 TARGET_SYSTEM_PROP := \
