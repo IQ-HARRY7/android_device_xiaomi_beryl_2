@@ -29,7 +29,6 @@ OF_ADVANCED_SECURITY := 0
 OF_NO_TREBLE_COMPATIBILITY_CHECK := 1
 
 # A/B partitioning
-OF_AB_DEVICE_WITH_RECOVERY_PARTITION := 1
 OF_ENABLE_ALL_PARTITION_TOOLS := 1
 
 # Fix recovery issues caused by large splash images
