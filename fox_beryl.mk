@@ -54,3 +54,10 @@ OF_FORCE_CASEFOLDING := 1
 
 # Enable the FRP reset addon
 OF_ENABLE_FRP_ADDON := 1
+
+# LZ4
+OF_USE_LZ4_COMPRESSION := 1
+
+# dmctl
+OF_USE_DMCTL := 1
+#

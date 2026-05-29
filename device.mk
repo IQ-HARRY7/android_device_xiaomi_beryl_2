@@ -5,6 +5,7 @@
 DEVICE_PATH := device/xiaomi/beryl
 
 # Configure Virtual A/B
+$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_vendor_ramdisk.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/compression_with_xor.mk)
 
 # Enable updating of APEXes
@@ -16,8 +17,10 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
 # Configure emulated_storage.mk
 $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
+$(call inherit-product, $(SRC_TARGET_DIR)/product/generic_ramdisk.mk)
+
 # OTA device(s)
-TARGET_OTA_ASSERT_DEVICE := amethyst
+TARGET_OTA_ASSERT_DEVICE := beryl,citrine
 
 # Boot control, Kernel prebuilts
 PRODUCT_PACKAGES += \
@@ -51,11 +54,6 @@ PRODUCT_SHIPPING_API_LEVEL  := 34
 PRODUCT_TARGET_VNDK_VERSION := 34
 BOARD_SHIPPING_API_LEVEL := 34
 SHIPPING_API_LEVEL := 34
-
-# Display Size & Density
-TARGET_SCREEN_HEIGHT  := 2712
-TARGET_SCREEN_DENSITY := 480
-TARGET_SCREEN_WIDTH   := 1220
 
 # Dynamic partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
@@ -121,13 +119,14 @@ TW_NO_SCREEN_BLANK      := true
 TW_FRAMERATE            := 120
 
 # Blacklist Goodix fingerprint. There's no reason to include this input in recovery
-# TW_INPUT_BLACKLIST := "uinput-goodix"
+TW_INPUT_BLACKLIST := "uinput-goodix"
 
 TW_CUSTOM_CPU_TEMP_PATH := "/sys/class/thermal/thermal_zone2/temp"
 TW_BRIGHTNESS_PATH      := "/sys/class/backlight/panel0-backlight/brightness"
 
 # Vendor modules required for the recovery to function properly
-TW_LOAD_VENDOR_MODULES  += "panel_event_notifier.ko xiaomi_touch.ko goodix_core.ko fts_touch_i2c.ko xiaomi_tp.ko
+TW_LOAD_VENDOR_MODULES  += "fts_touch_i2c.ko xiaomi_tp.ko
+TW_LOAD_VENDOR_MODULES  += panel_event_notifier.ko xiaomi_touch.ko goodix_core.ko
 TW_LOAD_VENDOR_MODULES  += focaltech_touch.ko adsp_loader_dlkm.ko
 TW_LOAD_VENDOR_MODULES  += qti_battery_charger.ko camera.ko stm_st54se_gpio.ko"
 
@@ -143,7 +142,6 @@ TW_INCLUDE_CRYPTO               := true
 TW_INCLUDE_CRYPTO_FBE           := true
 TW_INCLUDE_FBE_METADATA_DECRYPT := true
 TW_INCLUDE_OMAPI                := true
-BOARD_USES_QCOM_FBE_DECRYPTION  := true
 
 PLATFORM_VERSION                := 99.87.36
 PLATFORM_VERSION_LAST_STABLE    := $(PLATFORM_VERSION)
@@ -151,3 +149,25 @@ PLATFORM_VERSION_LAST_STABLE    := $(PLATFORM_VERSION)
 PLATFORM_SECURITY_PATCH := 2127-12-31
 VENDOR_SECURITY_PATCH   := $(PLATFORM_SECURITY_PATCH)
 BOOT_SECURITY_PATCH     := $(PLATFORM_SECURITY_PATCH)
+
+TW_USE_FSCRYPT_POLICY := 2
+
+PRODUCT_PACKAGES += \
+	linker.vendor_ramdisk \
+	e2fsck.vendor_ramdisk \
+	resize2fs.vendor_ramdisk \
+	fsck.vendor_ramdisk \
+	tune2fs.vendor_ramdisk
+
+# modules
+TW_LOAD_VENDOR_BOOT_MODULES := true
+
+PRODUCT_PACKAGES += \
+    beryl_modules
+
+# fstab files needed in first_stage_ramdisk
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/recovery/root/first_stage_ramdisk/fstab.mt6855:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.mt6855 \
+    $(DEVICE_PATH)/recovery/root/first_stage_ramdisk/fstab.emmc:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.emmc
+#    $(call find-copy-subdir-files,*,$(DEVICE_PATH)/prebuilt/vendor/lib/modules/,$(TARGET_COPY_OUT_VENDOR_RAMDISK)/lib/modules/)
+#
