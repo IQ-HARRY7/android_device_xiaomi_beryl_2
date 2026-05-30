@@ -104,21 +104,24 @@ PRODUCT_SOONG_NAMESPACES += \
 TW_THEME                := portrait_hdpi
 TW_DEFAULT_LANGUAGE     := en
 TW_USE_TOOLBOX          := true
-TW_INCLUDE_NTFS_3G      := true
+# To save space
+TW_INCLUDE_NTFS_3G      := false
 TW_INCLUDE_RESETPROP    := true
 TW_INCLUDE_LIBRESETPROP := true
 TW_MAX_BRIGHTNESS       := 4095
-TW_EXTRA_LANGUAGES      := true
+# to save space
+TW_EXTRA_LANGUAGES      := false
 TW_DEFAULT_BRIGHTNESS   := 2047
 TW_EXCLUDE_APEX         := true
 TW_INCLUDE_FASTBOOTD    := true
 TWRP_INCLUDE_LOGCAT     := true
-TW_INCLUDE_PYTHON       := true
+# to save space 
+TW_INCLUDE_PYTHON       := false
 TW_NO_SCREEN_BLANK      := true
 TW_FRAMERATE            := 120
 
 # Blacklist Goodix fingerprint. There's no reason to include this input in recovery
-TW_INPUT_BLACKLIST := "uinput-goodix"
+# TW_INPUT_BLACKLIST := "uinput-goodix"
 
 TW_CUSTOM_CPU_TEMP_PATH := "/sys/class/thermal/thermal_zone2/temp"
 TW_BRIGHTNESS_PATH      := "/sys/class/backlight/panel0-backlight/brightness"
