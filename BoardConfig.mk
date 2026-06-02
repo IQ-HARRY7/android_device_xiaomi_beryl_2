@@ -136,9 +136,6 @@ TARGET_USES_MKE2FS            := true
 #Gemini
 BOARD_PREBUILT_DTBIMAGE := device/xiaomi/beryl/prebuilt/dtb
 
-# comment out beaucase im doing with the live method 
-# BOARD_RECOVERY_RAMDISK_KERNEL_MODULES := $(wildcard device/xiaomi/beryl/prebuilt/modules/*.ko) #
-
 # Recovery
 TARGET_SYSTEM_PROP := \
     $(DEVICE_PATH)/system.prop
