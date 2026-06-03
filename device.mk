@@ -140,10 +140,11 @@ TW_SUPPORT_INPUT_AIDL_HAPTICS_FQNAME := "IVibrator/vibratorfeature"
 TW_SUPPORT_INPUT_AIDL_HAPTICS_FIX_OFF := true
 
 # TWRP - Crypto
-TW_INCLUDE_CRYPTO               := true
-TW_INCLUDE_CRYPTO_FBE           := true
-TW_INCLUDE_FBE_METADATA_DECRYPT := true
-TW_INCLUDE_OMAPI                := true
+# TW_INCLUDE_CRYPTO               := true
+# TW_INCLUDE_CRYPTO_FBE           := true
+# TW_INCLUDE_FBE_METADATA_DECRYPT := true
+# TW_INCLUDE_OMAPI                := true
+#
 
 PLATFORM_VERSION                := 99.87.36
 PLATFORM_VERSION_LAST_STABLE    := $(PLATFORM_VERSION)
