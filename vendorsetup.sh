@@ -65,6 +65,9 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
     export FOX_DELETE_AROMAFM=1
     export FOX_DELETE_INITD_ADDON=1
 	
+    # prevent automated reboot when flashing Orangefox.zip
+    export FOX_INSTALLER_DISABLE_AUTOREBOOT=1
+	
     # to reduce Orangefox size
 	export FOX_DRASTIC_SIZE_REDUCTION=1
    
