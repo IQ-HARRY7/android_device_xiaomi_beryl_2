@@ -1,26 +1,45 @@
-/lk1 emmc flags=display="LK1";backup=1
-/lk2 emmc flags=display="LK2";backup=1
-/tee1 emmc flags=display="TEE1";backup=1
-/tee2 emmc flags=display="TEE2";backup=1
-/nvram emmc flags=display="NVRAM";backup=1
-/nvdata emmc flags=display="NVDATA";backup=1
-/nvcfg emmc flags=display="NVCFG";backup=1
-/scp1 emmc flags=display="SCP1";backup=1
-/scp2 emmc flags=display="SCP2";backup=1
-/sspm1 emmc flags=display="SSPM1";backup=1
-/sspm2 emmc flags=display="SSPM2";backup=1
-/gz1 emmc flags=display="GZ1";backup=1
-/gz2 emmc flags=display="GZ2";backup=1
-/md1img emmc flags=display="MD1IMG";backup=1
-/md1dsp emmc flags=display="MD1DSP";backup=1
-/logo emmc flags=display="LOGO";backup=1
-/expdb emmc flags=display="EXPDB";backup=1
-/frp emmc flags=display="FRP";backup=1
-/misc emmc flags=display="MISC";backup=1
-/boot emmc flags=display="BOOT";backup=1
-/init_boot emmc flags=display="INIT_BOOT";backup=1
-/vendor_boot emmc flags=display="VENDOR_BOOT";backup=1
-/vbmeta emmc flags=display="VBMETA";backup=1
-/vbmeta_system emmc flags=display="VBMETA_SYSTEM";backup=1
-/super emmc flags=display="SUPER";backup=1
-/userdata f2fs flags=display="USERDATA";wipe;backup=0
+# From Samsung a33x - idk if it will work or not
+# i copied this from Orangefox gitlab device tree.
+# mount point	fstype		device	device2					flags
+# Logical f2fs partitions
+system		/system		f2fs						wait,logical,first_stage_mount
+vendor		/vendor		f2fs						wait,logical,first_stage_mount
+product		/product	f2fs						wait,logical,first_stage_mount
+odm		/odm		f2fs						wait,logical,first_stage_mount
+
+# Logical ext4 partitions
+system		/system         ext4						wait,logical,first_stage_mount
+vendor		/vendor		ext4						wait,logical,first_stage_mount
+product		/product	ext4						wait,logical,first_stage_mount
+odm		/odm		ext4						wait,logical,first_stage_mount
+
+# Symlinked partitions
+/system_image	emmc		/dev/block/bootdevice/by-name/system		flags=backup=1;flashimg=1;display="System Image"
+/vendor_image	emmc		/dev/block/bootdevice/by-name/vendor		flags=backup=0;flashimg=1;display="Vendor Image"
+/product_image	emmc		/dev/block/bootdevice/by-name/product		flags=backup=0;flashimg=1;display="Product Image"
+/odm_image	emmc		/dev/block/bootdevice/by-name/odm		flags=backup=0;flashimg=1;display="Odm Image"
+
+# Physical partitions
+/metadata	ext4		/dev/block/bootdevice/by-name/metadata		flags=backup=1;wipeingui;display="Metadata"
+/boot		emmc		/dev/block/bootdevice/by-name/boot		flags=backup=1;flashimg=1;display="Boot"
+/recovery	emmc		/dev/block/bootdevice/by-name/recovery		flags=backup=1;flashimg=1;display="Recovery"
+/data		f2fs		/dev/block/bootdevice/by-name/userdata		flags=length=-20480
+/cache		ext4		/dev/block/bootdevice/by-name/cache		flags=backup=1;display="Cache"
+/efs		ext4		/dev/block/bootdevice/by-name/efs		flags=backup=1;display="EFS"
+/sec_efs	ext4		/dev/block/bootdevice/by-name/sec_efs		flags=backup=1;display="Sec EFS"
+/modem		emmc		/dev/block/bootdevice/by-name/radio		flags=backup=1;display="Modem"
+/dtbo		emmc		/dev/block/bootdevice/by-name/dtbo		flags=backup=1;flashimg=1;display="Dtbo"
+/cp_debug	emmc		/dev/block/bootdevice/by-name/cp_debug		flags=backup=1;display="CP Debug"
+/up_param	emmc		/dev/block/bootdevice/by-name/up_param		flags=backup=1;display="Param"
+/optics_image	emmc		/dev/block/bootdevice/by-name/optics		flags=backup=1;flashimg=1;display="Optics Image"
+/prism_image	emmc		/dev/block/bootdevice/by-name/prism		flags=backup=1;flashimg=1;display="Prism Image"
+/vbmeta_system	emmc		/dev/block/bootdevice/by-name/vbmeta_system
+/vendor_boot	emmc		/dev/block/bootdevice/by-name/vendor_boot	flags=backup=1;flashimg=1;display="Vendor Boot"
+/vbmeta_samsung	emmc		/dev/block/bootdevice/by-name/vbmeta_samsung
+/persistent	emmc		/dev/block/bootdevice/by-name/persistent	flags=backup=1;flashimg=1;display="Persistent"
+
+# Removable storage
+/storage	auto    	/data/media/0                  		     	flags=backup=1;display="Internal Storage";usermrf;fsflags="bind,utf8";removable
+/sdcard1	auto		/dev/block/mmcblk0p1	/dev/block/mmcblk0	flags=display="MicroSD";storage;wipeingui;removable
+/usb_otg	auto		/dev/block/sdf1	/dev/block/sdf			flags=fsflags=utf8;display="USB-Storage";storage;wipeingui;removable
+#
