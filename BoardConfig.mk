@@ -125,8 +125,23 @@ BOARD_AVB_ENABLE := true
 BOARD_MKBOOTIMG_ARGS += --dtb $(BOARD_PREBUILT_DTBIMAGE)
 BOARD_MKBOOTIMG_ARGS += --dtb_offset $(BOARD_DTB_OFFSET)
 
-#i dont know what is this
+# i dont know what is this
 BOARD_USES_METADATA_PARTITION := true
+
+# make the decryption work & add mtk hardware logic
+# Crypto / Decryption
+# TW_INCLUDE_CRYPTO_FBE := true
+TW_INCLUDE_FBE_METADATA_DECRYPT := true
+
+# MTK specific
+BOARD_USES_MTK_HARDWARE := true
+
+# F2FS support
+TARGET_USERIMAGES_USE_F2FS := true
+
+# Metadata partition (CRITICAL for FBE)
+BOARD_USES_METADATA_PARTITION := true
+# ___________
 
 # Filesystems
 TARGET_USERIMAGES_USE_EXT4    := true
