@@ -145,7 +145,6 @@ BOARD_USES_METADATA_PARTITION := true
 
 # Filesystems
 TARGET_USERIMAGES_USE_EXT4    := true
-TARGET_USERIMAGES_USE_F2FS    := true
 TARGET_USES_MKE2FS            := true
 
 #Gemini
