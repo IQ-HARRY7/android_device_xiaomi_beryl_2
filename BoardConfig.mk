@@ -18,7 +18,8 @@ AB_OTA_PARTITIONS += \
     vendor_dlkm \
     odm_dlkm \
     vbmeta_system \
-    product
+    product \
+    system_dlkm
       
 BOARD_RAMDISK_USE_LZ4 := true
 
@@ -61,7 +62,7 @@ BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX_LOCATION := 1
 
 # VA/B with recovery partition. Leave this blank as Google recommends
-BOARD_USES_RECOVERY_AS_BOOT :=
+# BOARD_USES_RECOVERY_AS_BOOT :=
 
 # Generic system/kernel image
 BOARD_USES_GENERIC_KERNEL_IMAGE := true
@@ -107,7 +108,7 @@ BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_COPY_OUT_VENDOR := vendor
 BOARD_SUPER_PARTITION_SIZE := 9126805504
 BOARD_SUPER_PARTITION_GROUPS := xiaomi_dynamic_partitions
-BOARD_XIAOMI_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext vendor product vendor_dlkm odm_dlkm
+BOARD_XIAOMI_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext vendor product vendor_dlkm odm_dlkm mi_ext system_dlkm
 BOARD_XIAOMI_DYNAMIC_PARTITIONS_SIZE := 9122611200
 
 # Platform
