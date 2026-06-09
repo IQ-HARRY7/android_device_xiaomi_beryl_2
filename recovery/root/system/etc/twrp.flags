@@ -1,26 +1,39 @@
-# Man, its literally makin me cry 🥲😵‍💫
-# Logical Partitions
-/system           flags=display="System";backup=1;flashimg=1
-/vendor           flags=display="Vendor";backup=1;flashimg=1
-/product          flags=display="Product";backup=1;flashimg=1
-/system_ext       flags=display="System_ext";backup=1;flashimg=1
-/mi_ext           flags=display="Mi_ext";backup=1;flashimg=1
-/vendor_dlkm      flags=display="Vendor_dlkm";backup=1;flashimg=1
-/odm_dlkm         flags=display="Odm_dlkm";backup=1;flashimg=1
-/system_dlkm      flags=display="System_dlkm";backup=1;flashimg=1
+# Android fstab file.
+# The filesystem that contains the filesystem checker binary (typically /system) cannot
+# specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
 
-# Physical Partitions
-/metadata         flags=display="Metadata";backup=1;wipeingui
-/data             flags=display="Data";backup=1
-/boot             flags=display="Boot";backup=1;flashimg=1
-/vendor_boot      flags=display="Vendor_boot";backup=1;flashimg=1
-/dtbo             flags=display="Dtbo";backup=1;flashimg=1
-/vbmeta           flags=display="Vbmeta";backup=1;flashimg=1
+# mount point          fstype  device                                        device2              flags
 
-# Essential Protected Partitions (Critical for MTK)
-/persist          flags=display="Persist";backup=1
-/protect_f        flags=display="Protect_f";backup=1
-/protect_s        flags=display="Protect_s";backup=1
-/nvdata           flags=display="Nvdata";backup=1
-/nvcfg            flags=display="Nvcfg";backup=1
-/rescue           flags=display="Rescue";backup=1
+# Userdata/Metadata partitions
+/metadata              ext4    /dev/block/by-name/metadata                             flags=display="Metadata";backup=1;wrappedkey
+
+# Other partitions
+/misc                  emmc    /dev/block/by-name/misc
+
+# Boot
+/boot                  emmc    /dev/block/by-name/boot                                 flags=display="Boot";backup=1;slotselect;flashimg=1
+/init_boot             emmc    /dev/block/by-name/init_boot                            flags=display="Init Boot";backup=1;slotselect;flashimg=1
+/vendor_boot           emmc    /dev/block/by-name/vendor_boot                          flags=display="Vendor Boot";backup=1;slotselect;flashimg=1
+/dtbo                  emmc    /dev/block/by-name/dtbo                                 flags=display="DTBO";backup=1;slotselect;flashimg=1
+/recovery              emmc    /dev/block/by-name/recovery                             flags=display="Recovery";backup=1;slotselect;flashimg=1
+
+# AVB partitions
+/vbmeta                emmc    /dev/block/by-name/vbmeta                               flags=display="VBMeta";backup=1;slotselect;flashimg=1
+/vbmeta_system         emmc    /dev/block/by-name/vbmeta_system                        flags=display="VBMeta System";backup=1;slotselect;flashimg=1
+
+# Removable storage
+/storage               auto    /data/media/0                                           flags=display="Internal Storage";backup=1;usermrf;fsflags="bind,utf8";removable
+/usb_otg               auto    /dev/block/sdg1                 /dev/block/sdg4         flags=display="USB-OTG";storage;wipeingui;fsflags=utf8;removable
+
+# AVB/VBMeta
+/vbmeta                emmc    /dev/block/by-name/vbmeta                               flags=display="VBMeta";backup=1;slotselect;flashimg=1
+/vbmeta_system         emmc    /dev/block/by-name/vbmeta_system                        flags=display="VBMeta System";backup=1;slotselect;flashimg=1
+
+# Persistent Firmware
+/persist               ext4    /dev/block/by-name/persist                              flags=display="Persist"
+/persist_image         emmc    /dev/block/by-name/persist                              flags=display="Persist";backup=1
+/nvcfg                 ext4    /dev/block/by-name/nvcfg                                flags=display="Nvcfg";backup=1
+/nvdata                ext4    /dev/block/by-name/nvdata                               flags=display="Nvdata";backup=1
+/protect_f             ext4    /dev/block/by-name/protect1                             flags=display="Protect_f";backup=1
+/protect_s             ext4    /dev/block/by-name/protect2                             flags=display="Protect_s";backup=1
+/rescue                ext4    /dev/block/by-name/rescue                               flags=display="Cache";formattable;wipeduringfactoryreset
