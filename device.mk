@@ -140,10 +140,10 @@ TW_SUPPORT_INPUT_AIDL_HAPTICS_FQNAME := "IVibrator/vibratorfeature"
 TW_SUPPORT_INPUT_AIDL_HAPTICS_FIX_OFF := true
 
 # TWRP - Crypto - Temporarily false for testing Purpose.
-TW_INCLUDE_CRYPTO               := true
-TW_INCLUDE_CRYPTO_FBE           := true
-TW_INCLUDE_FBE_METADATA_DECRYPT := true
-TW_INCLUDE_OMAPI                := true
+# TW_INCLUDE_CRYPTO               := true
+# TW_INCLUDE_CRYPTO_FBE           := true
+# TW_INCLUDE_FBE_METADATA_DECRYPT := true
+# TW_INCLUDE_OMAPI                := true
 
 # platform
 PLATFORM_VERSION                := 99.87.36
@@ -153,7 +153,7 @@ PLATFORM_SECURITY_PATCH := 2127-12-31
 VENDOR_SECURITY_PATCH   := $(PLATFORM_SECURITY_PATCH)
 BOOT_SECURITY_PATCH     := $(PLATFORM_SECURITY_PATCH)
 
-TW_USE_FSCRYPT_POLICY := 2
+# TW_USE_FSCRYPT_POLICY := 2
 
 PRODUCT_PACKAGES += \
 	linker.vendor_ramdisk \
