@@ -1,6 +1,7 @@
 # Copyright (C) 2025-2026 OrangeFox Recovery Project
 # Copyright (C) 2026 chickendrop89
 # SPDX-License-Identifier: GPL-3.0-only
+# Atharv
 
 DEVICE_PATH := device/xiaomi/beryl
 
