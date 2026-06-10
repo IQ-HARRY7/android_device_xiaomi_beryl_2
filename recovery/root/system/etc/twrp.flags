@@ -15,7 +15,6 @@
 /init_boot             emmc    /dev/block/by-name/init_boot                            flags=display="Init Boot";backup=1;slotselect;flashimg=1
 /vendor_boot           emmc    /dev/block/by-name/vendor_boot                          flags=display="Vendor Boot";backup=1;slotselect;flashimg=1
 /dtbo                  emmc    /dev/block/by-name/dtbo                                 flags=display="DTBO";backup=1;slotselect;flashimg=1
-/recovery              emmc    /dev/block/by-name/recovery                             flags=display="Recovery";backup=1;slotselect;flashimg=1
 
 # AVB partitions
 /vbmeta                emmc    /dev/block/by-name/vbmeta                               flags=display="VBMeta";backup=1;slotselect;flashimg=1
