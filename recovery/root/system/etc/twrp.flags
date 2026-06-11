@@ -16,10 +16,6 @@
 /vendor_boot           emmc    /dev/block/by-name/vendor_boot                          flags=display="Vendor Boot";backup=1;slotselect;flashimg=1
 /dtbo                  emmc    /dev/block/by-name/dtbo                                 flags=display="DTBO";backup=1;slotselect;flashimg=1
 
-# AVB partitions
-/vbmeta                emmc    /dev/block/by-name/vbmeta                               flags=display="VBMeta";backup=1;slotselect;flashimg=1
-/vbmeta_system         emmc    /dev/block/by-name/vbmeta_system                        flags=display="VBMeta System";backup=1;slotselect;flashimg=1
-
 # Removable storage
 /storage               auto    /data/media/0                                           flags=display="Internal Storage";backup=1;usermrf;fsflags="bind,utf8";removable
 /usb_otg               auto    /dev/block/sdg1                 /dev/block/sdg4         flags=display="USB-OTG";storage;wipeingui;fsflags=utf8;removable
