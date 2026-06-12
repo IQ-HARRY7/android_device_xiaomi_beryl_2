@@ -7,9 +7,6 @@
 # Userdata/Metadata partitions
 /metadata              ext4    /dev/block/by-name/metadata                             flags=display="Metadata";backup=1;wrappedkey
 
-# Other partitions
-/misc                  emmc    /dev/block/by-name/misc
-
 # Boot
 /boot                  emmc    /dev/block/by-name/boot                                 flags=display="Boot";backup=1;slotselect;flashimg=1
 /init_boot             emmc    /dev/block/by-name/init_boot                            flags=display="Init Boot";backup=1;slotselect;flashimg=1
@@ -32,3 +29,6 @@
 /protect_f             ext4    /dev/block/by-name/protect1                             flags=display="Protect_f";backup=1
 /protect_s             ext4    /dev/block/by-name/protect2                             flags=display="Protect_s";backup=1
 /rescue                ext4    /dev/block/by-name/rescue                               flags=display="Cache";formattable;wipeduringfactoryreset
+
+# other partitions - let it be in the end as recommend 
+/misc                  emmc    /dev/block/by-name/misc
