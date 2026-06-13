@@ -56,7 +56,7 @@ OF_FORCE_CASEFOLDING := 1
 OF_ENABLE_FRP_ADDON := 1
 
 # skip Decryption so i can inspect more, must disable it later for decryption to work.
-OF_SKIP_FBE_DECRYPTION := 0
+OF_SKIP_FBE_DECRYPTION := 1
 
 # LZ4
 OF_USE_LZ4_COMPRESSION := 1
