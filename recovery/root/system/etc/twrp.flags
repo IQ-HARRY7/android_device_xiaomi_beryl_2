@@ -31,4 +31,4 @@
 /rescue                ext4    /dev/block/by-name/rescue                               flags=display="Cache";formattable;wipeduringfactoryreset
 
 # other partitions - let it be in the end as recommend 
-/misc                  emmc    /dev/block/by-name/misc
+/misc                  emmc    /dev/block/by-name/misc                                 flags=display="Misc";backup=1
