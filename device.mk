@@ -166,7 +166,7 @@ PRODUCT_PACKAGES += \
 TW_LOAD_VENDOR_BOOT_MODULES := true
 
 # fstab files needed in first_stage_ramdisk
-# PRODUCT_COPY_FILES += \
-# $(DEVICE_PATH)/recovery/root/first_stage_ramdisk/fstab.mt6855:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.mt6855 \
-# $(DEVICE_PATH)/recovery/root/first_stage_ramdisk/fstab.emmc:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.emmc
+ PRODUCT_COPY_FILES += \
+ $(DEVICE_PATH)/recovery/root/first_stage_ramdisk/fstab.mt6855:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.mt6855 \
+ $(DEVICE_PATH)/recovery/root/first_stage_ramdisk/fstab.emmc:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.emmc
 #
