@@ -21,6 +21,16 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_ramdisk.mk)
 # OTA device(s)
 TARGET_OTA_ASSERT_DEVICE := beryl,citrine
 
+# Soong Namespaces
+PRODUCT_SOONG_NAMESPACES += \
+    $(LOCAL_PATH) \
+    hardware/mediatek
+
+# Health
+PRODUCT_PACKAGES += \
+    android.hardware.health-service.mediatek \
+    android.hardware.health-service.mediatek-recovery
+
 # Boot control, Kernel prebuilts
 PRODUCT_PACKAGES += \
     android.hardware.boot@1.2-impl-qti.recovery \
