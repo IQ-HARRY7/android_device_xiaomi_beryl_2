@@ -10,16 +10,18 @@ DEVICE_PATH := device/xiaomi/beryl
 # A/B
 AB_OTA_UPDATER := true
 AB_OTA_PARTITIONS += \
-    system_ext \
-    vendor \
     boot \
+    dtbo \
     system \
-    vbmeta_vendor \
-    vendor_dlkm \
-    odm_dlkm \
-    vbmeta_system \
+    system_ext \
     product \
-    system_dlkm
+    vendor \
+    vendor_dlkm \
+    odm \
+    odm_dlkm \
+    vbmeta \
+    vbmeta_system \
+    vbmeta_vendor
       
 BOARD_RAMDISK_USE_LZ4 := true
 
