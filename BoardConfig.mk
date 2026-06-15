@@ -164,7 +164,8 @@ TARGET_USES_MKE2FS            := true
 BOARD_PREBUILT_DTBIMAGE := device/xiaomi/beryl/prebuilt/dtb
 
 # This device does not support fastboot boot, do *NOT* remove!
-TW_NO_FASTBOOT_BOOT := true
+# TW_NO_FASTBOOT_BOOT := true 
+# temporary comment out
 
 # Recovery
 TARGET_SYSTEM_PROP := \
