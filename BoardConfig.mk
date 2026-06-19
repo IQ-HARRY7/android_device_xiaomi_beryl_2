@@ -137,6 +137,9 @@ TARGET_USERIMAGES_USE_EXT4 := true
 # Verified Boot
 BOARD_AVB_ENABLE := true
 
+# Critical for Virtual A/B devices
+BOARD_KERNEL_CMDLINE += androidboot.vbmeta_system_kernel_cmdline=androidboot.selinux=permissive
+
 # set SELinux to permissive mode
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
