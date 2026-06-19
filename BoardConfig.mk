@@ -143,6 +143,7 @@ BOARD_KERNEL_CMDLINE += androidboot.vbmeta_system_kernel_cmdline=androidboot.sel
 # set SELinux to permissive mode
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+BOARD_VENDOR_KERNEL_CMDLINE += androidboot.selinux=permissive
 
 # add dtb to vendor_boot.img
 BOARD_MKBOOTIMG_ARGS += --dtb $(BOARD_PREBUILT_DTBIMAGE)
