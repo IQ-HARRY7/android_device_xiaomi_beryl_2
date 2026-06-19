@@ -1,0 +1,3 @@
+# Allow the kernel/su domain to use execmem execution permissions
+allow su self:process execmem;
+allow init su:process { transition rlimitinh siginh noatsecure };
