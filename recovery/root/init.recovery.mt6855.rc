@@ -1,5 +1,10 @@
 import /init.recovery.project.rc
 
+on early-init
+    write /proc/bootprof "started early-init sequence"
+    wait /sys/fs/selinux/enforce
+    write /sys/fs/selinux/enforce 0
+
 on init
     setprop sys.usb.configfs 1
     setprop sys.usb.controller "musb-hdrc"
