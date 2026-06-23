@@ -1,6 +1,0 @@
-# Allow execmem for vendor init in recovery
-   allow vendor_init vendor_init:process execmem;
-   
-   # Allow access to /lib for module loading
-   allow vendor_init vendor_file:dir { search read };
-     allow vendor_init vendor_file:file { open read execute };
