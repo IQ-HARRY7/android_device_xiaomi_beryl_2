@@ -2,3 +2,4 @@ service vendor.keymint-mitee /vendor/bin/hw/android.hardware.security.keymint@4.
 	class early_hal
 	user system
 	group system drmrpc
+	disabled

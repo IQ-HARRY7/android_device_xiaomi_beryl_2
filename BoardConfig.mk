@@ -101,7 +101,7 @@ BOARD_MKBOOTIMG_ARGS += --vendor_cmdline "$(VENDOR_CMDLINE)"
 BOARD_FLASH_BLOCK_SIZE := 262144
 
 # necessary imgs & their size
-BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864
+BOARD_BOOTIMAGE_PARTITION_SIZE := 134217728
 BOARD_INIT_BOOT_IMAGE_PARTITION_SIZE := 8388608
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 67108864
 BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 67108864
@@ -136,6 +136,9 @@ TARGET_USERIMAGES_USE_EXT4 := true
 
 # Verified Boot
 BOARD_AVB_ENABLE := true
+
+# Critical for Virtual A/B devices
+# BOARD_KERNEL_CMDLINE += androidboot.vbmeta_system_kernel_cmdline=androidboot.selinux=permissive
 
 # set SELinux to permissive mode
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
