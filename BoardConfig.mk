@@ -150,9 +150,6 @@ BOARD_MKBOOTIMG_ARGS += --dtb_offset $(BOARD_DTB_OFFSET)
 # i dont know what is this
 BOARD_USES_METADATA_PARTITION := true
 
-# make the decryption work & add mtk hardware logic
-TW_INCLUDE_FBE_METADATA_DECRYPT := true
-
 # MTK specific
 BOARD_USES_MTK_HARDWARE := true
 

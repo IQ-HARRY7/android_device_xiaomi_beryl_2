@@ -9,7 +9,7 @@ MODULES_DIR="/vendor/lib/modules"
 QCOM_BATTERY_DIR="/sys/class/qcom-battery"
 
 DRIVERS="panel_event_notifier xiaomi_touch goodix_core focaltech_touch"
-TOUCH_SVC_STATUS=$(getprop init.svc.touchfeature-service)
+#TOUCH_SVC_STATUS=$(getprop init.svc.touchfeature-service)
 
 ( # For batterysecret (async)
     while [ ! -d "$QCOM_BATTERY_DIR" ]; 
@@ -29,10 +29,10 @@ for d in $DRIVERS;
         fi
 done
 
-if [ "$TOUCH_SVC_STATUS" != "running" ]; 
-    then 
-        setprop ctl.start touchfeature-service
-        echo "Forced touchscreen service start" >> /tmp/recovery.log
-fi
+#if [ "$TOUCH_SVC_STATUS" != "running" ]; 
+#    then 
+#        setprop ctl.start touchfeature-service
+#        echo "Forced touchscreen service start" >> /tmp/recovery.log
+#fi
 
 exit 0
