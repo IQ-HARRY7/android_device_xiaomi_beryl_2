@@ -149,6 +149,16 @@ TW_SUPPORT_INPUT_AIDL_HAPTICS := true
 TW_SUPPORT_INPUT_AIDL_HAPTICS_FQNAME := "IVibrator/vibratorfeature"
 TW_SUPPORT_INPUT_AIDL_HAPTICS_FIX_OFF := true
 
+# recovery modules - needed for Decryption.
+TARGET_RECOVERY_DEVICE_MODULES += \
+    android.hardware.gatekeeper-V1-ndk \
+    libgatekeeper \
+    android.hardware.gatekeeper-service.mitee \
+    android.hardware.keymaster@3.0 \
+    libkeymaster4support \
+    android.hardware.keymaster-V4-ndk.so \
+    android.hardware.keymaster@4.1
+
 # TWRP - Crypto - Temporarily false for testing Purpose.
  TW_INCLUDE_CRYPTO               := true
  TW_INCLUDE_CRYPTO_FBE           := true
