@@ -33,7 +33,7 @@ PRODUCT_PACKAGES += \
 
 # Boot control, Kernel prebuilts
 PRODUCT_PACKAGES += \
-    android.hardware.boot@1.2-impl-qti.recovery \
+    android.hardware.boot@1.2-impl-mediatek.recovery \
     vendor_kernel_prebuilts
 
 # FastbootD support
